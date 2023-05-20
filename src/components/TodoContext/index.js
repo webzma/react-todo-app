@@ -24,7 +24,8 @@ function TodoProvider({ children }) {
    function completeTodo(text) {
       const newTodos = [...todos];
       const todoIndex = newTodos.findIndex(todo => todo.text === text);
-      newTodos[todoIndex].completed = true;
+      const isCompletedTodo = newTodos[todoIndex].completed;
+      newTodos[todoIndex].completed = !isCompletedTodo;
       saveTodo(newTodos);
    }
 
@@ -60,11 +61,6 @@ function TodoProvider({ children }) {
 
    //AQUÍ GUARDAMOS LA CANTIDAD DE TAREAS COMPLETADAS
    const completedTodos = todos.filter(todo => todo.completed === true).length;
-
-
-   React.useEffect(() => {
-      console.log("Cambió el estado de busqueda de tareas");
-   }, [totalTodos])
 
    return (
       <TodoContext.Provider value={
