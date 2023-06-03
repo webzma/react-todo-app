@@ -9,6 +9,7 @@ import { TodoEmpty } from '../TodoEmpty';
 import { TodoContext } from '../TodoContext';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
+import { TodoMenu } from '../TodoMenu';
 
 function AppUI() {
    const {
@@ -25,6 +26,7 @@ function AppUI() {
       <>
          <TodoCounter />
          <TodoSearch />
+         <TodoMenu />
          <TodoList>
             {loading && <TodoLoading />}
             {error && <TodoError />}
